@@ -2,13 +2,17 @@ import { useState, useEffect } from 'react'
 import './App.css'
 import { getModes, getModeData } from './utils/modo_dia'
 import { getFormattedData as getParkings } from './utils/bilbao_parkings'
+import { getProvincias,getMunicipios } from './utils/municipios'
 import Chart from './components/Chart'
 import Map from './components/Map'
+import { onEachFeature,style } from './utils/zonas_map'
 
 const parkings = getParkings();
-function App() {
+const provincias = getProvincias();
+const municipios = getMunicipios(null,true);
+const modes = getModes();
 
-  const [modes, setModes] = useState(getModes())
+function App() {
   const [data, setData] = useState([]);
   const [selectedModes, setSelectedModes] = useState([])
 
@@ -43,6 +47,14 @@ function App() {
           {mode}
         </p>
       ))}
+      {provincias.map((provincia) => (
+        <p
+          className={selectedModes.includes(provincia) ? "mode selected" : "mode"}
+          key={provincia} onClick={() => handleModeClick(provincia)}
+        >
+          {provincia}
+        </p>
+      ))}
       {data.length !== 0 &&
         <Chart
           data={data}
@@ -53,6 +65,15 @@ function App() {
       <Map
         data={parkings}
         title="Aparcamientos de Bilbao"
+      />
+      <Map
+        data={municipios}
+        title="Zonas de transoporte público de Bizkaia"
+        isChoropleth={true}
+        zoom={10}
+        lat={43.23}
+        lng={-2.92}
+        coroplethInfo={{style:style,onEachFeature:onEachFeature}}
       />
 
     </>
