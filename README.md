@@ -1,8 +1,11 @@
-# React + Vite
+# GReaphics
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Proyecto de React de ejemplo de uso de las librerías `react-plotly.js` y `leaflet`.
 
-Currently, two official plugins are available:
+## React-plotly.js
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Instalación
+
+```bash
+npm install react-plotly.js plotly.js
+```
