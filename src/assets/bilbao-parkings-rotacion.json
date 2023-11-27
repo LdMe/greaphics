@@ -1,0 +1,29 @@
+{
+"type": "FeatureCollection",
+"name": "bilbao-parkings-rotacion",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "aparid": "1007", "nombre": "Abandoibarra" }, "geometry": { "type": "Point", "coordinates": [ -2.940248442849604, 43.268505245601503 ] } },
+{ "type": "Feature", "properties": { "aparid": "1007", "nombre": "Abandoibarra" }, "geometry": { "type": "Point", "coordinates": [ -2.940837720318582, 43.268642957254997 ] } },
+{ "type": "Feature", "properties": { "aparid": "1006", "nombre": "Alhóndiga" }, "geometry": { "type": "Point", "coordinates": [ -2.93692639041081, 43.260124903342749 ] } },
+{ "type": "Feature", "properties": { "aparid": "1001", "nombre": "Arenal" }, "geometry": { "type": "Point", "coordinates": [ -2.922877569218728, 43.262780312773423 ] } },
+{ "type": "Feature", "properties": { "aparid": "1002", "nombre": "Ayala" }, "geometry": { "type": "Point", "coordinates": [ -2.929190599516474, 43.260942544756148 ] } },
+{ "type": "Feature", "properties": { "aparid": "1017", "nombre": "Bilbao Arena" }, "geometry": { "type": "Point", "coordinates": [ -2.926086572126717, 43.251844034587144 ] } },
+{ "type": "Feature", "properties": { "aparid": "1003", "nombre": "Ensanche" }, "geometry": { "type": "Point", "coordinates": [ -2.931098801361465, 43.263362132183161 ] } },
+{ "type": "Feature", "properties": { "aparid": "1010", "nombre": "Euskalduna" }, "geometry": { "type": "Point", "coordinates": [ -2.945154555488542, 43.266399261755836 ] } },
+{ "type": "Feature", "properties": { "aparid": "1005", "nombre": "Indautxu" }, "geometry": { "type": "Point", "coordinates": [ -2.940981776038642, 43.260677541602497 ] } },
+{ "type": "Feature", "properties": { "aparid": "1005", "nombre": "Indautxu" }, "geometry": { "type": "Point", "coordinates": [ -2.939483482293407, 43.260193933006065 ] } },
+{ "type": "Feature", "properties": { "aparid": "1004", "nombre": "Instituto" }, "geometry": { "type": "Point", "coordinates": [ -2.932126060156986, 43.259926373928636 ] } },
+{ "type": "Feature", "properties": { "aparid": "1018", "nombre": "INTERMODAL" }, "geometry": { "type": "Point", "coordinates": [ -2.948879131308866, 43.260549392944057 ] } },
+{ "type": "Feature", "properties": { "aparid": "1009", "nombre": "Karmelo" }, "geometry": { "type": "Point", "coordinates": [ -2.911574410527886, 43.25429028174068 ] } },
+{ "type": "Feature", "properties": { "aparid": "1016", "nombre": "Mercadona S. Adrián" }, "geometry": { "type": "Point", "coordinates": [ -2.929286538940888, 43.248270182815645 ] } },
+{ "type": "Feature", "properties": { "aparid": "1015", "nombre": "Mercadona/Urkijo" }, "geometry": { "type": "Point", "coordinates": [ -2.947276415133636, 43.262388291408023 ] } },
+{ "type": "Feature", "properties": { "aparid": "1014", "nombre": "Miribilla Eroski" }, "geometry": { "type": "Point", "coordinates": [ -2.930631099627042, 43.249823759480904 ] } },
+{ "type": "Feature", "properties": { "aparid": "1011", "nombre": "Pio Baroja" }, "geometry": { "type": "Point", "coordinates": [ -2.925429153834586, 43.26385649968914 ] } },
+{ "type": "Feature", "properties": { "aparid": "1012", "nombre": "Plaza Euskadi" }, "geometry": { "type": "Point", "coordinates": [ -2.937488382439472, 43.267802277644137 ] } },
+{ "type": "Feature", "properties": { "aparid": "1012", "nombre": "Plaza Euskadi" }, "geometry": { "type": "Point", "coordinates": [ -2.936826101302374, 43.26692496119454 ] } },
+{ "type": "Feature", "properties": { "aparid": "1013", "nombre": "Termibus" }, "geometry": { "type": "Point", "coordinates": [ -2.950377170723792, 43.262380151084969 ] } },
+{ "type": "Feature", "properties": { "aparid": "1008", "nombre": "Zabalburu" }, "geometry": { "type": "Point", "coordinates": [ -2.933618212718624, 43.25662120842216 ] } },
+{ "type": "Feature", "properties": { "aparid": "1008", "nombre": "Zabalburu" }, "geometry": { "type": "Point", "coordinates": [ -2.934747279115521, 43.256837662999217 ] } }
+]
+}

@@ -1,8 +1,11 @@
 import { useState, useEffect } from 'react'
 import './App.css'
 import { getModes, getModeData } from './utils/modo_dia'
+import { getFormattedData as getParkings } from './utils/bilbao_parkings'
 import Chart from './components/Chart'
+import Map from './components/Map'
 
+const parkings = getParkings();
 function App() {
 
   const [modes, setModes] = useState(getModes())
@@ -30,6 +33,8 @@ function App() {
   }
   return (
     <>
+      <h1>Información de transporte en Bilbao</h1>
+      <h2>Modos de transporte</h2>
       {modes.map((mode) => (
         <p
           className={selectedModes.includes(mode) ? "mode selected" : "mode"}
@@ -45,11 +50,10 @@ function App() {
           title="Modo de transporte por dia"
         />
       }
-      {data.map((item) => (
-        <article key={JSON.stringify(item)}>
-          <p >{item["dia "]} | {item["modo"]} | {item["Numero"]}</p>
-        </article>
-      ))}
+      <Map
+        data={parkings}
+        title="Aparcamientos de Bilbao"
+      />
 
     </>
   )
