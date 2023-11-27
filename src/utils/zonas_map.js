@@ -13,6 +13,7 @@ const highlightFeature = (e) => {
 }
 const resetHighlight = (e) => {
     e.target.setStyle(style(e.target.feature));
+    e.target.closePopup();
 }
 const onEachFeature = (feature, layer) => {
     layer.on({
