@@ -47,14 +47,7 @@ function App() {
           {mode}
         </p>
       ))}
-      {provincias.map((provincia) => (
-        <p
-          className={selectedModes.includes(provincia) ? "mode selected" : "mode"}
-          key={provincia} onClick={() => handleModeClick(provincia)}
-        >
-          {provincia}
-        </p>
-      ))}
+      
       {data.length !== 0 &&
         <Chart
           data={data}
