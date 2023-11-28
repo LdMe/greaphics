@@ -10,9 +10,7 @@ const colors = ['red', 'blue', 'green', 'yellow', 'orange', 'purple', 'pink', 'b
  * @returns {array} [{x:[],y:[],type: string, mode: string, marker: {color: string}, name: string}
  */
 const formatChartData = (data,type) => {
-    console.log("datasetss",data)
     return data.map((singleDataset, index) => {
-        console.log("dataset",singleDataset)
         const x = singleDataset.map((item) => item["dia "])
         const y = singleDataset.map((item) => item["Numero"])
         return {
