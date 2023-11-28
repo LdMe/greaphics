@@ -17,9 +17,8 @@ const getModeData = (mode) => {
     });
 }
 
-
 export  {
     getRawData,
     getModes,
-    getModeData
+    getModeData,
 }

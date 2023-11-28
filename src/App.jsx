@@ -2,29 +2,38 @@ import { useState, useEffect } from 'react'
 import './App.css'
 import { getModes, getModeData } from './utils/modo_dia'
 import { getFormattedData as getParkings } from './utils/bilbao_parkings'
-import { getProvincias,getMunicipios } from './utils/municipios'
+import { getProvincias, getMunicipios } from './utils/municipios'
 import Chart from './components/Chart'
 import Map from './components/Map'
-import { onEachFeature,style } from './utils/zonas_map'
+import { onEachFeature, style } from './utils/zonas_map'
+import { types as chartTypes, formatChartData } from './utils/chart_config'
 
 const parkings = getParkings();
-const provincias = getProvincias();
-const municipios = getMunicipios(null,true);
+const municipios = getMunicipios(null, true);
 const modes = getModes();
-
+const geoJson = {
+  data: municipios,
+  config: {
+    style: style,
+    onEachFeature: onEachFeature
+  }
+};
 function App() {
-  const [data, setData] = useState([]);
+  const [chartData, setChartData] = useState([]);
+  const [chartType, setChartType] = useState("scatter");
   const [selectedModes, setSelectedModes] = useState([])
 
+  /**
+   * Function to handle the click on a mode, it adds or removes the mode from the selected modes and updates the chart data
+   * @param {string} mode transport mode 
+   */
   const handleModeClick = (mode) => {
     const newSelectedModes = [...selectedModes];
-    const newData = [...data];
+    const newData = [...chartData];
     if (newSelectedModes.includes(mode)) {
       const index = newSelectedModes.indexOf(mode);
       newSelectedModes.splice(index, 1);
       newData.splice(index, 1);
-
-
     }
     else {
       newSelectedModes.push(mode);
@@ -33,7 +42,7 @@ function App() {
 
     }
     setSelectedModes(newSelectedModes);
-    setData(newData);
+    setChartData(newData);
   }
   return (
     <>
@@ -47,26 +56,33 @@ function App() {
           {mode}
         </p>
       ))}
-      
-      {data.length !== 0 &&
-        <Chart
-          data={data}
-          multi={true}
-          title="Modo de transporte por dia"
-        />
+
+      {chartData.length !== 0 &&
+        <section className="chart-outer">
+          <select onChange={(e) => setChartType(e.target.value)}>
+            {chartTypes.map((type) => (
+              <option key={type} value={type}>
+                {type}
+              </option>
+            ))}
+          </select>
+          <Chart
+            data={formatChartData(chartData, chartType)}
+            multi={true}
+            title="Modo de transporte por dia"
+          />
+        </section>
       }
       <Map
-        data={parkings}
+        markers={parkings}
         title="Aparcamientos de Bilbao"
       />
       <Map
-        data={municipios}
+        geoJson={geoJson}
         title="Zonas de transoporte público de Bizkaia"
-        isChoropleth={true}
         zoom={10}
         lat={43.23}
         lng={-2.92}
-        coroplethInfo={{style:style,onEachFeature:onEachFeature}}
       />
 
     </>

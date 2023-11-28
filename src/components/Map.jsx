@@ -4,16 +4,20 @@ import { useState, useEffect } from 'react';
 // import leaflet css
 import 'leaflet/dist/leaflet.css';
 
-
-const Map = ({ title = "map", data, zoom=13,lat=43.26271,lng=-2.92528, isChoropleth = false,coroplethInfo={style:{},onEachFeature:{}} }) => {
-    const [markers, setMarkers] = useState([]);
-    useEffect(() => {
-        console.log(data);
-        if (!isChoropleth) {
-            setMarkers(data);
-            return;
-        }
-    }, [data, isChoropleth])
+/**
+ * 
+ * @param {Object} props
+ * @param {string} props.title title of the map
+ * @param {number} props.zoom zoom of the map
+ * @param {number} props.lat latitude of the map
+ * @param {number} props.lng longitude of the map
+ * @param {Object[]} props.markers markers, each marker has the following structure: {id: number, name: string, latitude: number, longitude: number}
+ * @param {Object} props.geoJson geoJson data and config
+ * @param {Object[]} props.geoJson.data geoJson data  (each element has the following structure: {properties: {name: string}, geometry: {coordinates: number[][][], type: string}})
+ * @param {Object} props.geoJson.config geoJson config (has the following structure: {style: function, onEachFeature: function})
+ * @returns 
+ */
+const Map = ({ title = "map",  zoom=13,lat=43.26271,lng=-2.92528,markers=[], geoJson={data:[],config:null}}) => {
     
     return (
         <section className="map">
@@ -29,11 +33,11 @@ const Map = ({ title = "map", data, zoom=13,lat=43.26271,lng=-2.92528, isChoropl
                         </Popup>
                     </Marker>
                 ))}
-                {isChoropleth &&
+                {geoJson.data.length !== 0 &&
                     <GeoJSON
-                        data={data}
-                        style={coroplethInfo.style}
-                        onEachFeature={coroplethInfo.onEachFeature}
+                        data={geoJson.data}
+                        style={geoJson.config.style}
+                        onEachFeature={geoJson.config.onEachFeature}
                     />}
             </MapContainer>
         </section>
