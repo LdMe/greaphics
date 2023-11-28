@@ -1,6 +1,6 @@
 import { MapContainer, TileLayer, Marker, Popup, GeoJSON} from 'react-leaflet';
 import { useState, useEffect } from 'react';
-
+import  './Map.scss';
 // import leaflet css
 import 'leaflet/dist/leaflet.css';
 
